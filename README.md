@@ -7,8 +7,22 @@ Anysphere colorscheme for neovim from Cursor AI editor.
 ## Installation
     
 ```lua
-use { "dapovich/anysphere.nvim" }
+use { "dnpch/anysphere.nvim" }
 ```
+
+```lua
+-- Using lazy.nvim (minimal configuration)
+{
+  "dnpch/anysphere.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd([[colorscheme anysphere]])
+  end,
+}
+```
+
+
     
 ## Requirement
 
@@ -22,11 +36,33 @@ vim.cmd.colorscheme "anysphere"
 ```
 
 Or prefer below if you want to customize some options
-
 ```lua
 require("anysphere").setup({
     -- your options
 })
+```
+
+```lua
+-- Using lazy.nvim
+{
+  "dnpch/anysphere.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+
+    -- Setup your config here
+    require("anysphere").setup({
+        transparent = false,
+        colors = {},
+        themes = function(colors)
+            return {}
+        end,
+        italics = false,
+    })
+
+    vim.cmd([[colorscheme anysphere]])
+  end,
+}
 ```
 
 ### Default
